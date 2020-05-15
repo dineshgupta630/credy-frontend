@@ -11,7 +11,7 @@ import {shareReplay, tap} from "rxjs/operators";
   styleUrls: ['./movie-detailed.component.css']
 })
 export class MovieDetailedComponent implements OnInit {
-  apiUrl = 'http://35.184.2.25:8001/'
+  apiUrl = 'http://35.184.2.25:8001'
   reviews;
   movie;
   routerUrl = this.router.url;
