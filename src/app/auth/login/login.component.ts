@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from "@angular/router";
 import {AuthServices} from "../../services/auth.services";
+import {MessageServices} from "../../services/message.services";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,7 @@ import {AuthServices} from "../../services/auth.services";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private authService: AuthServices, private router: Router) { }
-
+  apiUrl = 'http://35.184.2.25:8001';
   loginForm = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -22,6 +22,12 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
+  constructor(private authService: AuthServices, private router: Router, private messageService: MessageServices,
+              private http: HttpClient,) {
+  }
+
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     const formValue = this.loginForm.value;
@@ -29,15 +35,23 @@ export class LoginComponent implements OnInit {
       this.authService.loginUser(this.loginForm.value)
         .subscribe(
           () => {
-            console.log("User is logged in");
+            this.userRatings();
             this.router.navigateByUrl('/');
+
           }
         );
     }
   }
 
-  ngOnInit(): void {
-    console.log(this.authService.isLoggedIn());
+  sendMessage(message): void {
+    // This is to send a message to the subscribers via the observable subject.
+    this.messageService.sendMessage(message);
+  }
+
+  userRatings() {
+    return this.http.get<any>(`${this.apiUrl}/reviews/`).subscribe(response => {
+      this.sendMessage(response);
+    });
   }
 
 }
