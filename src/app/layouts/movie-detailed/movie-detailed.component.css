@@ -1,0 +1,287 @@
+
+/* Corvette demo */
+.corvette-demo header, .corvette-demo footer {
+  display: none;
+}
+
+.corvette-demo {
+  color: #333;
+  font-family: 'Roboto Condensed',Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+.corvette-demo a {
+  text-decoration: none;
+}
+.corvette-demo p {
+  margin: 0 0 10px;
+}
+
+.corvette-demo .content-container {
+  margin: 40px auto;
+  max-width: 900px;
+  overflow: auto;
+}
+
+.corvette-demo .breadcrumb {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.corvette-demo .breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+.corvette-demo .breadcrumb li {
+  display: inline-block;
+  font-size: 12px;
+  list-style: none;
+  text-transform: capitalize;
+  margin-right: 5px;
+}
+.corvette-demo .breadcrumb li a {
+  color: #6cafe9;
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.corvette-demo .main-col {
+  display: inline;
+  width: 40%;
+}
+@media (max-width: 850px) {
+  .corvette-demo .main-col {
+    width: 96%;
+    margin: 0 2%;
+  }
+}
+.corvette-demo .main-col.left {
+  float: left;
+  width: 56%;
+}
+@media (max-width: 850px) {
+  .corvette-demo .main-col.left {
+    width: 96%;
+    margin-bottom: 20px;
+  }
+}
+.corvette-demo .main-col.right {
+  float: right;
+}
+
+.corvette-demo .jersey-content {
+  background: #fefefe;
+  border: 2px solid #eee;
+  padding: 0 15px;
+}
+@media (max-width: 850px) {
+  .corvette-demo .jersey-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.corvette-demo h1.product-name {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: left;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0;
+  padding: 0 0 15px;
+}
+
+.corvette-demo .availability {
+  background: #eee;
+  font-size: 12px;
+  margin: 15px 0;
+  padding: 10px;
+  max-width: 300px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.corvette-demo .availability h3 {
+  border-bottom: solid 1px #aaa;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 0 5px;
+  text-align: left;
+  padding: 0 0 5px;
+}
+
+.corvette-demo .product-price {
+  font-size: 22px;
+}
+
+.corvette-demo .product-review-box {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.corvette-demo .product-review-box a {
+  color: #6cafe9;
+  text-decoration: none;
+}
+.corvette-demo .product-review-box .rating {
+  display: inline-block;
+}
+.corvette-demo .product-review-box .rating-count {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.custom-jersey-form {
+  margin: 10px 0;
+}
+
+.corvette-demo label {
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.corvette-demo .select {
+  background: #eaeaea;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  min-width: 300px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  padding: 0;
+  overflow: hidden;
+}
+.corvette-demo .select:hover {
+  background: #e1e1e1;
+  transition: all 0.5s ease;
+}
+
+.corvette-demo .select:before {
+  content: "\203A";
+  position: absolute;
+  font-size: 30px;
+  right: 0;
+  padding-left: 5px;
+  top: 0;
+  bottom: 0;
+  transform: rotate(90deg);
+}
+
+.corvette-demo .select select {
+  display: inline;
+  cursor: pointer;
+  padding: 14px;
+  padding-right: 15px;
+  width: 130%;
+  border: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 0.01px;
+  line-height: normal;
+}
+
+.corvette-demo input[type="text"] {
+  padding: 12px 0;
+  max-width: 300px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  line-height: normal;
+}
+
+.corvette-demo .required {
+  color: red;
+}
+
+.corvette-demo ul.color-squares {
+  padding: 0;
+}
+.corvette-demo ul.color-squares li {
+  display: inline-block;
+  margin-right: 5px;
+  min-width: 44px;
+  height: 44px;
+  border: 1px solid #999999;
+}
+.corvette-demo ul.color-squares .color-container {
+  display: inline-block;
+  padding: 0 8px !important;
+  border: none;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  line-height: 42px;
+}
+.corvette-demo ul.color-squares .color-container .out-of-stock .color-container {
+  background-color: transparent;
+  color: #aaaaaa;
+}
+
+.corvette-demo .qty {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+.corvette-demo .qty input {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 8px;
+  width: 65px;
+}
+
+.corvette-demo .btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  background: #f1ca22;
+  border: 1px solid #f1ca22;
+  color: #FFF;
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 15px;
+  text-transform: uppercase;
+  width: 290px;
+}
+.corvette-demo .btn:hover {
+  background: #e7c11e;
+  transition: all 0.5s ease;
+}
+.corvette-demo .btn.order {
+  background: #ff5633;
+  border: 1px solid #ff5633;
+}
+.corvette-demo .btn.order:hover {
+  background: #e94d2d;
+}
+.corvette-demo .btn .fa {
+  margin-right: 8px;
+}
+
+.image-size{
+  height: 800px;
+  width: 500px;
+}
+
+.custom-heading{
+  padding: 10px;
+}

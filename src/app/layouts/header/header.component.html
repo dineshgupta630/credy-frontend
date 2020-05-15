@@ -1,0 +1,18 @@
+<header id="top_header" class="clearfix">
+  <div class="wrapper">
+    <h1 class="logo">Movies<span>&amp;</span>Stuff</h1>
+    <a href="#" class="menu"><i class="fa fa-bars"></i></a>
+    <nav id="main_nav" >
+      <div *ngIf="this.authService.isLoggedIn(); else ifNotShow">
+        <a routerLink="/logout" routerLinkActive="active">Logout</a>
+        <a href="#">Total Number of Reviews: {{this.totalReviews}}</a>
+        <a href="#">Your Average Rating {{this.avgRating | number:'1.2-2'}}</a>
+
+      </div>
+      <ng-template #ifNotShow>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/registration" routerLinkActive="active">Registration</a>
+      </ng-template>
+    </nav>
+  </div>
+</header>

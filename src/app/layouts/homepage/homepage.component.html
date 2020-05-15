@@ -1,0 +1,157 @@
+<section class="clearfix" id="banner" *ngIf="movies">
+  <div id="banner_content_wrapper">
+    <div id="poster">
+      <img (click)="movieDetail(movies[0].slug)" class="featured_image"
+           src="{{movies[0].movie_poster}}">
+    </div>
+    <div id="content">
+      <div class="ratings">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star inactive"></i>
+      </div>
+      <h2>{{movies[0].title}}</h2>
+
+      <p class="description">{{movies[0].plot}}</p>
+
+      <p><span>Released On&nbsp;{{movies[0].release_date | date: 'dd-MM-yyyy'}}</span>
+      </p>
+    </div>
+  </div>
+</section>
+<section class="clearfix" id="top_movies">
+  <mat-drawer-container class="custom-container">
+    <mat-drawer mode="side" opened style="width:30%; border: none;padding:0px 20px;">
+      <mat-accordion class="custom-mat-accordian">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Filter by Date
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- Date Range Starts  -->
+          <mat-form-field>
+            <input matInput
+                   placeholder="Choose a date"
+                   #resultPickerModel="ngModel"
+                   [satDatepicker]="resultPicker"
+                   [(ngModel)]="date"
+                   (dateInput)="onDateInput($event)"
+                   (dateChange)="onDateChange($event)">
+            <sat-datepicker
+              #resultPicker [rangeMode]="true">
+            </sat-datepicker>
+            <sat-datepicker-toggle matSuffix [for]="resultPicker"></sat-datepicker-toggle>
+          </mat-form-field>
+          <!-- Date Range Ends -->
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Actors
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!--  Actors Selection -->
+          <mat-form-field>
+            <mat-label>Select Actor(s)</mat-label>
+            <mat-select [formControl]="actors" multiple>
+              <mat-option *ngFor="let actor of allActorsList" [value]="actor.name">{{actor.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Actor Selection Ends -->
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Genre
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!--  Genre Selection  -->
+          <mat-form-field>
+            <mat-label>Select Genre(s)</mat-label>
+            <mat-select [formControl]="genres" multiple>
+              <mat-option *ngFor="let genre of allGenresList"
+                          [value]="genre.genre_name">{{genre.genre_name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Genre Selection Ends -->
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Budget
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- Budget Selection -->
+
+          <mat-card class="example-result-card">
+            <mat-card-content>
+              Minimum (In Millions)
+              <mat-slider
+                class="example-margin"
+                [disabled]="disabled"
+                [invert]="invert"
+                [max]="max"
+                [min]="min"
+                [step]="step"
+                [thumbLabel]="thumbLabel"
+                [tickInterval]="getSliderTickInterval()"
+                [(ngModel)]="sliderMinimumValue"
+                [vertical]="vertical">
+              </mat-slider>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="example-result-card">
+            <mat-card-content>
+              Maximum (In Millions)
+              <mat-slider
+                class="example-margin"
+                [disabled]="disabled"
+                [invert]="invert"
+                [max]="max"
+                [min]="min"
+                [step]="step"
+                [thumbLabel]="thumbLabel"
+                [tickInterval]="getSliderTickInterval()"
+                [(ngModel)]="sliderMaximumValue"
+                [vertical]="vertical">
+              </mat-slider>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Budget Selection Ends -->
+        </mat-expansion-panel>
+      </mat-accordion>
+      <button type="submit" mat-raised-button color="primary" style="margin: 10px;" (click)="onFilter()">Filter</button>
+      <mat-card-title *ngIf="filterMessage">No Data Found, Try Again?</mat-card-title>
+    </mat-drawer>
+    <mat-drawer-content style="background:#fff;">
+      <div class="row">
+        <div *ngFor="let movie of movies | slice:1" class="post">
+          <mat-card class="custom-card" style="cursor: pointer;" (click)="movieDetail(movie.slug)">
+            <img mat-card-image src="{{movie.movie_poster}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <mat-card-title>{{movie.title}}</mat-card-title>
+              <mat-card-subtitle>{{movie.release_date | date: 'dd-MM-yyyy'}}</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</section>
+

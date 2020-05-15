@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box
+}
+
+body,
+html {
+  font-family: 'Open Sans', sans-serif
+}
+
+#main_footer {
+  padding: 2.5em 0;
+  text-align: center
+}
+
+#main_footer .logo {
+  text-transform: uppercase;
+  font-size: 1.15em;
+  font-weight: 700
+}
+
+#main_footer .logo span {
+  font-weight: 300;
+  color: #73e298
+}
+
+#main_footer .copyright {
+  color: #8b8b9f;
+  font-size: .75em;
+  margin-top: 1em
+}
+
+#main_footer .links {
+  display: inline
+}
+
+#main_footer .links a {
+  color: #8b8b9f;
+  font-size: .75em;
+  text-decoration: none;
+  margin: 0 .5em
+}
+
+#main_footer .links a:hover {
+  color: #73e298
+}

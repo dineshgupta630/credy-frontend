@@ -1,0 +1,74 @@
+<head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body *ngIf="movie" class="corvette-demo">
+<div class="content-container">
+  <div class="breadcrumb">
+    <ol>
+      <li><a routerLink="/" routerLinkActive="active">home</a> /</li>
+      <li>{{movie.title}}</li>
+    </ol>
+  </div>
+  <div class="main-col left">
+    <div class="jersey-content">
+      <img class="image-size" src="{{movie.movie_poster}}">
+    </div>
+  </div>
+  <div class="main-col right">
+    <div class="custom-heading">
+      <h4 class="product-name">{{movie.plot}}</h4>
+      <span>Released On: {{movie.release_date | date: 'dd-MM-yyyy'}}</span>
+    </div>
+    <div class="custom-heading">
+      <h4>Cast</h4>
+    </div>
+    <mat-card *ngFor="let actor of movie.actors" class="example-card">
+      {{actor.name}}
+    </mat-card>
+    <div *ngIf="reviews">
+      <div class="custom-heading">
+        <h4>Reviews</h4>
+        Average Movie Rating - {{reviews.average_rating}}
+      </div>
+      <mat-card *ngFor="let review of reviews['results']" class="example-card">
+        <mat-card-content>
+          {{review.rating_value}} Stars - {{review.user.username | titlecase}}
+          <mat-card-subtitle>{{review.review}}</mat-card-subtitle>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="custom-heading">
+      <h4>Add Your Review</h4>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-content>
+          Rating
+          <mat-slider
+            [(ngModel)]="userRating"
+            [disabled]="disabled"
+            [invert]="invert"
+            [max]="max"
+            [min]="min"
+            [step]="step"
+            [thumbLabel]="thumbLabel"
+            [tickInterval]="getSliderTickInterval()"
+            [vertical]="vertical"
+            class="example-margin">
+          </mat-slider>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput [(ngModel)]="userReview" placeholder="Ex. It makes me feel..."></textarea>
+          </mat-form-field>
+          <button (click)="onSubmit()" color="primary" mat-raised-button>Submit Review</button>
+      </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="showSuccessMessage" class="example-card">
+      <mat-card-content>
+        Successfully, Saved.
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+</body>

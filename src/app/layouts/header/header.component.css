@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box
+}
+
+body,
+html {
+  font-family: 'Open Sans', sans-serif
+}
+
+.clearfix:after,
+.clearfix:before {
+  content: " ";
+  display: table
+}
+
+.clearfix:after {
+  clear: both
+}
+
+.wrapper {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300
+}
+
+#top_header {
+  padding: 1.5em 0
+}
+
+#top_header .logo {
+  float: left;
+  text-transform: uppercase;
+  font-size: 1.15em;
+  font-weight: 700
+}
+
+#top_header .logo span {
+  font-weight: 300;
+  color: #73e298
+}
+
+#top_header #main_nav {
+  float: right;
+  font-size: .9em
+}
+
+#top_header #main_nav a {
+  color: #8b8b9f;
+  text-decoration: none;
+  margin-left: 1em
+}
+
+.menu {
+  display: none
+}
+
+#top_movies {
+  padding: 5em 0
+}
+
+#top_movies header {
+  padding: 0 0 1.5em 0
+}
+
+#top_movies header h2 {
+  display: inline
+}
+
+#top_movies header h2 {
+  font-size: 1.75em
+}
+
+#top_movies {
+  border-bottom: 1px solid #d4d4d4
+}
+
+@media only screen and (max-width:768px) {
+  #main_nav {
+    display: none
+  }
+  .menu {
+    display: block;
+    float: right
+  }
+  .menu i {
+    font-size: 1.5em;
+    color: #252529
+  }
+  #top_movies {
+    padding: 3em 0
+  }
+  #top_movies header {
+    padding: 0 0 1.5em 1.25%
+  }
+  #top_movies header h2 {
+    font-size: 1.5em
+  }
+}
+
+@media only screen and (max-width:575px) {
+  #top_movies {
+    margin-bottom: 2em
+  }
+}

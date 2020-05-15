@@ -1,0 +1,34 @@
+<div class="box">
+  <div>
+    <mat-card class="example-card">
+      <mat-card-content>
+        <form autocomplete="on" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="text"  formControlName="username" name="given-username" autocomplete="given-username">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="text"  formControlName="email" name="given-email" autocomplete="given-email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password"  formControlName="password" name="given-password" autocomplete="given-password">
+          </mat-form-field>
+          <mat-card-actions>
+            <section>
+              <div class="example-button-row">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Submitt</button>
+                <button mat-raised-button color="primary" routerLink="/login" routerLinkActive="active">Already Registered? Login Now</button>
+              </div>
+            </section>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>

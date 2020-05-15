@@ -5,10 +5,10 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
+      "imports": [
         RouterTestingModule
       ],
-      declarations: [
+      "declarations": [
         AppComponent
       ],
     }).compileComponents();
@@ -23,6 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'credy-manage'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    // @ts-ignore
     expect(app.title).toEqual('credy-manage');
   });
 
