@@ -26,7 +26,7 @@
     "angular-star-rating": "^4.0.0-beta.3",
     "css-star-rating": "^1.2.4",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "ngx-bar-rating": "^1.1.0",
     "rxjs": "~6.5.4",
     "saturn-datepicker": "^8.0.5",
